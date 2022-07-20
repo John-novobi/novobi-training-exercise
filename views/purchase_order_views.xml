@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="purchase_order_view_form_inherit" model="ir.ui.view">
+        <field name="name">purchase.order.view.form.inherit</field>
+        <field name="model">purchase.order</field>
+        <field name="inherit_id" ref="purchase.purchase_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//sheet//div[@name='button_box']" position="inside">
+                <button name="action_archive_purchase_order" type="object" class="oe_stat_button" icon="fa-archive" string="Archive"
+                    attrs="{'invisible':[('active', '=', False)]}" >
+                    <field name="active" invisible="1" />
+                </button>
+            </xpath>
+            <xpath expr="//sheet//div[@name='button_box']" position="after">
+                <widget name="web_ribbon" title="Archived" bg_color="bg-danger" attrs="{'invisible': [('active', '=', True)]}"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="purchase_order_view_tree_inherit" model="ir.ui.view">
+        <field name="name">purchase.order.view.tree.inherit</field>
+        <field name="model">purchase.order</field>
+        <field name="inherit_id" ref="purchase.purchase_order_view_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree" position="inside">
+                <field name="active" invisible="1" />
+            </xpath>
+            <xpath expr="//tree" position="attributes">
+                <attribute name="decoration-muted">active == False</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="purchase_order_view_search_inherit" model="ir.ui.view">
+        <field name="name">purchase.order.view.search.inherit</field>
+        <field name="model">purchase.order</field>
+        <field name="inherit_id" ref="purchase.purchase_order_view_search"/>
+        <field name="arch" type="xml">
+            <xpath expr="//search" position="inside">
+                <filter name="Archived" string="Archived" domain="[('active', '=', False)]" />
+            </xpath>
+        </field>
+    </record>
+
+    <record id="archive_purchase_order_action_server" model="ir.actions.server">
+        <field name="name">Archive Purchase Order</field>
+        <field name="model_id" ref="model_purchase_order"/>
+        <field name="binding_model_id" ref="model_purchase_order"/>
+        <field name="state">code</field>
+        <field name="code">
+            records.action_archive_purchase_order()
+        </field>
+    </record>
+
+</odoo>
