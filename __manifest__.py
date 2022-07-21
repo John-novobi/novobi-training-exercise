@@ -12,6 +12,8 @@
 
         'views/purchase_order_views.xml',
         'wizard/purchase_order_archive_views.xml',
-        'report/purchase_order_templates.xml'
+        'report/purchase_order_templates.xml',
+        # 'report/purchase_report_views.xml'
+        'data/ir_cron_data.xml'
     ]
 }
