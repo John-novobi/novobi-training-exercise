@@ -15,5 +15,10 @@
         'report/purchase_order_templates.xml',
         # 'report/purchase_report_views.xml'
         'data/ir_cron_data.xml'
-    ]
+    ],
+    'assets': {
+        'web.assets_backend': [
+            'purchase_order_enhancement/static/src/js/us_phone.js',
+        ]
+    },
 }

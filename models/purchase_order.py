@@ -7,6 +7,7 @@ class PurchaseOrder(models.Model):
 
     active = fields.Boolean(string='Active', default=True)
     lifespan = fields.Integer(string='Lifespan', default=30)
+    hotline = fields.Char(string='Hotline')
 
     def action_archive_purchase_order(self):
         if not self.env.user or self.env.user.user_has_groups('purchase.group_purchase_manager'):

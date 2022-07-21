@@ -17,6 +17,7 @@
             </xpath>
             <xpath expr="//field[@name='partner_ref']" position="after">
                 <field name="lifespan" />
+                <field name="hotline" widget="us_phone" />
             </xpath>
         </field>
     </record>
