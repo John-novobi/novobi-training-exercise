@@ -11,6 +11,7 @@
         'security/ir.model.access.csv',
 
         'views/purchase_order_views.xml',
-        'wizard/purchase_order_archive_views.xml'
+        'wizard/purchase_order_archive_views.xml',
+        'report/purchase_order_templates.xml'
     ]
 }
