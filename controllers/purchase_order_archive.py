@@ -10,7 +10,7 @@ class PurchaseOrderArchive(http.Controller):
             raise UserError('Invalid method !')
         order_ids = params['orders']
         try:
-            request.env['purchase.order'].sudo().browse(order_ids).action_archive_purchase_order()
+            request.env['purchase.order'].sudo().browse(order_ids).action_archive_purchase_order(api_call=True)
             return {
                 'archived_orders': order_ids,
                 'code': 200,

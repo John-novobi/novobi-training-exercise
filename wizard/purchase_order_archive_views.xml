@@ -20,7 +20,7 @@
                     </group>
                 </sheet>
                 <footer>
-                    <button string="Archive" name="action_archive_purchase_orders" type="object" class="oe_highlight"/>
+                    <button string="Archive" name="action_archive_purchase_orders" type="object" class="btn-primary"/>
                     <button string="Cancel" class="btn-secondary" special="cancel"/>
                 </footer>
             </form>

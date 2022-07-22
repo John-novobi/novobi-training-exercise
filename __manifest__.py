@@ -5,15 +5,15 @@
     'description': 'This module contains enhanced features for Purchase module',
     'depends': ['base', 'purchase'],
     'author': 'John Bui',
-    'application': True,
+    'application': False,
     'installable': True,
     'data': [
+        'data/ir_cron_data.xml',
         'security/ir.model.access.csv',
-
         'views/purchase_order_views.xml',
-        'wizard/purchase_order_archive_views.xml',
+        'views/res_config_settings_views.xml',
         'report/purchase_order_templates.xml',
-        'data/ir_cron_data.xml'
+        'wizard/purchase_order_archive_views.xml',
     ],
     'assets': {
         'web.assets_backend': [
