@@ -8,7 +8,7 @@
         <field name="arch" type="xml">
             <xpath expr="//sheet//div[@name='button_box']" position="inside">
                 <button name="action_archive_purchase_order" type="object" class="oe_stat_button" icon="fa-archive" string="Archive"
-                    attrs="{'invisible':[('active', '=', False)]}" >
+                    attrs="{'invisible':[('active', '=', False)]}" groups="purchase.group_purchase_manager" >
                     <field name="active" invisible="1" />
                 </button>
             </xpath>
