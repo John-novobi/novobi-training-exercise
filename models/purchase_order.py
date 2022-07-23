@@ -20,12 +20,11 @@ class PurchaseOrder(models.Model):
         if self.filtered(lambda record: record.state not in ('done', 'cancel')).exists():
             raise UserError('Can only archive Locked or Canceled Purchase Order')
         else:
-            for record in self:
-                record.active = False
+            self.write({'active': False})
                 
 
     @api.model
     def cron_archive_old_purchase_order(self):
-        lifespan = int(self.env['ir.config_parameter'].get_param('purchase_order_archive_lifespan'))
+        lifespan = int(self.env['ir.config_parameter'].sudo().get_param('purchase_order_archive_lifespan', 30))
         date_threshold = fields.Datetime.now() - relativedelta(minutes=lifespan)
         self.search([('state','in',['done','cancel']),('write_date','<',date_threshold)])._archive_purchase_order()

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_purchase_order_pivot_inherit" model="ir.ui.view">
+        <field name="name">purchase.order.view.pivot.inherit</field>
+        <field name="model">purchase.report</field>
+        <field name="inherit_id" ref="purchase.view_purchase_order_search"/>
+        <field name="arch" type="xml">
+            <xpath expr="//group[@expand=1]" position="inside">
+                <filter string="Payment Term" name="payment_term_id" context="{'group_by':'payment_term_id'}"/>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

@@ -5,10 +5,10 @@ from odoo.exceptions import UserError
 class PurchaseOrderArchive(http.Controller):
     @route(['/purchase_order/archive'], methods=['POST'], type='json', auth='none')
     def archive_purchase_order(self, **params):
-        method = params['method']
+        method = params.get('method')
         if method != 'archive':
             raise UserError('Invalid method !')
-        order_ids = params['orders']
+        order_ids = params.get('orders')
         try:
             request.env['purchase.order'].sudo().browse(order_ids).action_archive_purchase_order(api_call=True)
             return {
@@ -22,3 +22,4 @@ class PurchaseOrderArchive(http.Controller):
                 'code': 404,
                 'message': 'Could not found'
             }
+            
