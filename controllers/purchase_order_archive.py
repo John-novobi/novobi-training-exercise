@@ -19,7 +19,7 @@ class PurchaseOrderArchive(http.Controller):
 
         def _get_order_ids(order_ids):
             found_order_ids = request.env['purchase.order'].sudo().browse(order_ids)
-            if len(found_order_ids) != len(order_ids):
+            if len(found_order_ids.exists()) != len(order_ids):
                 raise MissingError('Could not found')
             else:
                 return found_order_ids
