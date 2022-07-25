@@ -8,7 +8,6 @@ class PurchaseOrder(models.Model):
     _description = 'Purchase Order Enhancement'
 
     active = fields.Boolean(string='Active', default=True)
-    hotline = fields.Char(string='Hotline')
 
     def action_archive_purchase_order(self, api_call=False):
         if api_call or self.env.user.user_has_groups('purchase.group_purchase_manager'):

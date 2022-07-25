@@ -12,6 +12,7 @@
         'security/ir.model.access.csv',
         'views/purchase_order_views.xml',
         'views/res_config_settings_views.xml',
+        'views/res_partner_views.xml',
         'report/purchase_report_views.xml',
         'report/purchase_order_templates.xml',
         'wizard/purchase_order_archive_views.xml',

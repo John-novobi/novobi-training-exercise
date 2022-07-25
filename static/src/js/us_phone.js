@@ -2,12 +2,12 @@ odoo.define('purchase_order_enhancement.us_phone', function(require) {
     'use strict';
     
     var field_registry = require('web.field_registry');
-    var FieldChar = require('web.basic_fields').FieldChar;
+    var FieldPhone = require('web.basic_fields').FieldPhone;
 
-    var UsPhone = FieldChar.extend({
+    var UsPhone = FieldPhone.extend({
         className: 'o_field_us_phone',
 
-        events: _.extend({}, FieldChar.prototype.events, {
+        events: _.extend({}, FieldPhone.prototype.events, {
             'keyup': '_onKeyUp',
         }), 
 
@@ -22,7 +22,7 @@ odoo.define('purchase_order_enhancement.us_phone', function(require) {
         },
 
         _onKeyUp: function (e) {
-            e.target.value = formatPhoneNumber(e.target.value);
+            e.target.value = this.formatPhoneNumber(e.target.value);
         },
     });
 
