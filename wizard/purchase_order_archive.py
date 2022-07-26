@@ -7,5 +7,4 @@ class PurchaseOrderArchive(models.TransientModel):
     purchase_order_ids = fields.Many2many(comodel_name='purchase.order', string='Purchase Orders')
 
     def action_archive_purchase_orders(self):
-        for record in self:
-            record.purchase_order_ids.action_archive_purchase_order()
+        self.purchase_order_ids.action_archive_purchase_order()
