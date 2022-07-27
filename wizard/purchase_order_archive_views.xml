@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="purchase_order_archive_view_form" model="ir.ui.view">
+        <field name="name">purchase.order.archive.view.form</field>
+        <field name="model">purchase.order.archive</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="purchase_order_ids">
+                            <tree create="false">
+                                <field name="name" />
+                                <field name="partner_id" />
+                                <field name="user_id" />
+                                <field name="amount_total" />
+                                <field name="state" />
+                            </tree>
+                        </field>
+                    </group>
+                </sheet>
+                <footer>
+                    <button string="Archive" name="action_archive_purchase_orders" type="object" class="btn-primary"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="purchase_order_archive_action" model="ir.actions.act_window">
+        <field name="name">Archive Purchase Orders</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">purchase.order.archive</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="purchase_order_archive_view_form"/>
+        <field name="target">new</field>
+    </record>
+
+    <menuitem
+        id="purchase_order_archive_menu"
+        action="purchase_order_archive_action"
+        parent="purchase.menu_purchase_config"/>
+
+</odoo>
